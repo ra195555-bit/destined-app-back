@@ -227,7 +227,7 @@ router.get("/discovery", authMiddleware, async (req, res) => {
       id: user._id,
       name: user.name,
       dateOfBirthday: user.dateOfBirthday,
-      photos: user.photos.map((p) => `http://localhost:5000/${p}`),
+      photos: user.photos.map((p) => `/${p}`),
     }));
 
     res.status(200).json(responseUsers);
@@ -473,9 +473,7 @@ router.get("/likes/who-liked-me", authMiddleware, async (req, res) => {
       dateOfBirthday: user.dateOfBirthday,
       gender: user.gender,
       // Construímos a URL completa das fotos
-      photos: user.photos
-        ? user.photos.map((p) => `http://localhost:5000/${p}`)
-        : [],
+      photos: user.photos ? user.photos.map((p) => `/${p}`) : [],
     }));
 
     res.status(200).json(responseUsers);
