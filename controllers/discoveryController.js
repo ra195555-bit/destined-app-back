@@ -1,6 +1,6 @@
-import User from "../models/user";
-import Like from "../models/like";
-import Match from "../models/match";
+import User from "../models/user.js";
+import Like from "../models/like.js";
+import Match from "../models/match.js";
 
 const getDiscoveryProfiles = async (req, res) => {
   const currentUserId = req.userId;

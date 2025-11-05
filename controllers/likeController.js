@@ -1,5 +1,5 @@
-import Like from "../models/like";
-import Match from "../models/match";
+import Like from "../models/like.js";
+import Match from "../models/match.js";
 
 const createLike = async (req, res) => {
   const { likedId } = req.body;
