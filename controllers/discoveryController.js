@@ -53,6 +53,4 @@ const getDiscoveryProfiles = async (req, res) => {
   }
 };
 
-module.exports = {
-  getDiscoveryProfiles,
-};
+export default getDiscoveryProfiles;

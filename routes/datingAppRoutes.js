@@ -1,7 +1,7 @@
 import { Router } from "express";
 import loginController from "../controllers/loginController.js";
 import likeController from "../controllers/likeController.js";
-import discoveyController from "../controllers/discoveryController.js";
+import discoveryController from "../controllers/discoveryController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 import User from "../models/user.js";
 import Like from "../models/like.js";
@@ -112,7 +112,7 @@ router.post("/likes", authMiddleware, likeController.createLike);
 router.get(
   "/discovery",
   authMiddleware,
-  discoveyController.getDiscoveryProfiles
+  discoveryController.getDiscoveryProfiles
 );
 
 //Matches

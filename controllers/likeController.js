@@ -64,6 +64,4 @@ const createLike = async (req, res) => {
   }
 };
 
-module.exports = {
-  createLike,
-};
+export default createLike;
