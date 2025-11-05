@@ -27,7 +27,6 @@ const loginController = {
         expiresIn: "1d",
       });
 
-      // Prepara o objeto do usuário para a resposta, removendo a senha.
       const userResponse = {
         id: user._id,
         name: user.name,
@@ -37,7 +36,7 @@ const loginController = {
       res.status(200).json({
         message: "Login bem-sucedido",
         token: token,
-        user: userResponse, // Retorna o objeto 'user' completo, como o frontend espera.
+        user: userResponse,
       });
     } catch (error) {
       console.error("Erro no login:", error);
