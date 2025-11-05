@@ -1,7 +1,7 @@
 import Like from "../models/like.js";
 import Match from "../models/match.js";
 
-const createLike = async (req, res) => {
+export const createLike = async (req, res) => {
   const { likedId } = req.body;
   const likerId = req.userId;
 
@@ -63,5 +63,3 @@ const createLike = async (req, res) => {
     res.status(500).json({ message: "Erro interno no servidor" });
   }
 };
-
-export default createLike;

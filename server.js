@@ -17,8 +17,8 @@ mongoose
     server.use(express.json());
     server.use(express.urlencoded());
     server.use(cors());
-    server.use('/uploads', express.static('uploads'));
-    server.use("/api", datingAppRoutes);
+    server.use("/uploads", express.static("uploads"));
+    server.use(datingAppRoutes);
 
     server.get("/health", async (_, res) => {
       try {

@@ -2,7 +2,7 @@ import User from "../models/user.js";
 import Like from "../models/like.js";
 import Match from "../models/match.js";
 
-const getDiscoveryProfiles = async (req, res) => {
+export const getDiscoveryProfiles = async (req, res) => {
   const currentUserId = req.userId;
 
   try {
@@ -52,5 +52,3 @@ const getDiscoveryProfiles = async (req, res) => {
     res.status(500).json({ message: "Erro interno no servidor" });
   }
 };
-
-export default getDiscoveryProfiles;

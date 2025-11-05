@@ -1,7 +1,7 @@
 import { Router } from "express";
 import loginController from "../controllers/loginController.js";
-import likeController from "../controllers/likeController.js";
-import discoveryController from "../controllers/discoveryController.js";
+import { createLike } from "../controllers/likeController.js";
+import { getDiscoveryProfiles } from "../controllers/discoveryController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 import User from "../models/user.js";
 import Like from "../models/like.js";
@@ -106,14 +106,10 @@ router.post(
 );
 
 //Likes
-router.post("/likes", authMiddleware, likeController.createLike);
+router.post("/likes", authMiddleware, createLike);
 
 //Home Swipe
-router.get(
-  "/discovery",
-  authMiddleware,
-  discoveryController.getDiscoveryProfiles
-);
+router.get("/discovery", authMiddleware, getDiscoveryProfiles);
 
 //Matches
 router.get("/matches", authMiddleware, async (req, res) => {
