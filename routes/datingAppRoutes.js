@@ -2,11 +2,13 @@ import { Router } from "express";
 import loginController from "../controllers/loginController.js";
 import { createLike } from "../controllers/likeController.js";
 import { getDiscoveryProfiles } from "../controllers/discoveryController.js";
+import { getUserProfile } from "../controllers/userController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 import User from "../models/user.js";
 import Like from "../models/like.js";
 import Match from "../models/match.js";
 import Message from "../models/message.js";
+import userController from "../controllers/userController.js";
 import multer from "multer";
 
 const router = Router();
@@ -196,6 +198,12 @@ router.get("/matches/:matchId/messages", authMiddleware, async (req, res) => {
 });
 
 //Chat
+router.get(
+  "/users/:otherUserId",
+  authMiddleware,
+  userController.getUserProfile
+);
+
 router.post("/matches/:matchId/messages", authMiddleware, async (req, res) => {
   const { matchId } = req.params;
   const currentUserId = req.userId;
@@ -320,6 +328,7 @@ router.get("/likes/who-liked-me", authMiddleware, async (req, res) => {
     const matches = await Match.find({
       $or: [{ userOneId: currentUserId }, { userTwoId: currentUserId }],
     });
+
     const matchedUserIds = matches.map((match) => {
       return match.userOneId.toString() === currentUserId.toString()
         ? match.userTwoId

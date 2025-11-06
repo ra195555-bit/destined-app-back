@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import User from "../models/user.js";
 
-const loginController = {
+export const loginController = {
   login: async (req, res) => {
     const { email, password } = req.body;
 
@@ -44,5 +44,3 @@ const loginController = {
     }
   },
 };
-
-export default loginController;
