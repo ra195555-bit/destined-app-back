@@ -8,7 +8,6 @@ import User from "../models/user.js";
 import Like from "../models/like.js";
 import Match from "../models/match.js";
 import Message from "../models/message.js";
-import userController from "../controllers/userController.js";
 import multer from "multer";
 
 const router = Router();
