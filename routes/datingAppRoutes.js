@@ -2,7 +2,7 @@ import { Router } from "express";
 import loginController from "../controllers/loginController.js";
 import { createLike } from "../controllers/likeController.js";
 import { getDiscoveryProfiles } from "../controllers/discoveryController.js";
-import { getUserProfile } from "../controllers/userController.js";
+import UserController from "../controllers/userController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 import User from "../models/user.js";
 import Like from "../models/like.js";
@@ -201,7 +201,7 @@ router.get("/matches/:matchId/messages", authMiddleware, async (req, res) => {
 router.get(
   "/users/:otherUserId",
   authMiddleware,
-  userController.getUserProfile
+  UserController.getUserProfile
 );
 
 router.post("/matches/:matchId/messages", authMiddleware, async (req, res) => {
